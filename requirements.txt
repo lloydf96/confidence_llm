@@ -1,0 +1,27 @@
+# Python deps for the AWS SageMaker confidence-llm pipeline (aws_notebooks/).
+# Install on the SageMaker instance with:  pip install -r requirements.txt
+
+# --- Model / generation (step 01, needs a GPU instance) ---
+torch>=2.1
+transformers>=4.44
+accelerate>=0.30
+huggingface_hub>=0.23
+datasets>=2.18          # load SQuAD in 00_prepare_data
+
+# --- AWS: S3 IO + Bedrock verification ---
+boto3>=1.34            # bedrock-runtime (Converse API) + S3
+sagemaker>=2.200       # default_bucket() / session
+s3fs>=2024.2.0         # lets pandas read/write s3:// parquet directly
+pyarrow>=15.0          # parquet engine
+
+# --- Data / modelling ---
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.10
+joblib>=1.3
+python-dotenv>=1.0
+pytest>=8.4.2
+
+# --- Analysis (step 07 notebook) ---
+matplotlib>=3.7
